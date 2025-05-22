@@ -15,7 +15,10 @@ function fleaJump(matrix) {
   const oldState = new Map();
 
   for (let i = 0; i < matrix.length; ++i) {
-    let maxFleas = oldState.get(i) || matrix[i];
+    let maxFleas = oldState.get(i);
+    if (maxFleas === undefined) {
+      maxFleas = matrix[i];
+    }
     if (maxFleas == 0) {
       continue;
     }
